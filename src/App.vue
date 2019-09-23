@@ -30,7 +30,6 @@ export default {
 <style>
 #app{
   position: relative;
-  /* z-index: -999999; */
 }
 .main-viewport{
   position: absolute;

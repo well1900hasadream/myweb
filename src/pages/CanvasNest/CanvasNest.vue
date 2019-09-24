@@ -61,7 +61,7 @@ export default {
 #canvas-nest{
   width: 100%;
   // z-index: -999999;
-  pointer-events: none !important;
+  // pointer-events: none !important;
   // background-color: gray;
   // min-height: 200px;
 }

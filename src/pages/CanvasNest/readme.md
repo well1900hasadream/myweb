@@ -1,0 +1,1 @@
+这是封装后的CanvasNest背景

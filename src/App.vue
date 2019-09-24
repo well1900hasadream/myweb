@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <CanvasNest />
-    <router-view v-if="!showBoot" class="main-viewport"/>
-    <Boot class="boot" v-if="showBoot" />
+    <router-view v-show="!showBoot" class="main-viewport"/>
+    <Boot class="boot" v-show="showBoot" />
+    <MaskLayer></MaskLayer>
   </div>
 </template>
 
 <script>
 import Boot from './pages/Boot/Boot'
 import CanvasNest from './pages/CanvasNest/CanvasNest'
+import MaskLayer from './pages/MaskLayer/MaskLayer'
+
 export default {
   name: 'app',
   data () {
@@ -22,7 +25,8 @@ export default {
   },
   components: {
     CanvasNest,
-    Boot
+    Boot,
+    MaskLayer
   }
 }
 </script>
@@ -30,6 +34,8 @@ export default {
 <style>
 #app{
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .main-viewport{
   position: absolute;
@@ -40,5 +46,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+}
+.el-menu{
+  z-index: 1;
 }
 </style>

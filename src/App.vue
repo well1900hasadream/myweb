@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Layout v-show="!showBoot"/>
+    <Layout v-show="!showBoot" class="layout"/>
     <!-- 以下并非主要布局 -->
     <CanvasNest />
     <Boot class="boot" v-show="showBoot" />
@@ -42,5 +42,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+}
+.layout{
+  box-sizing: border-box;
 }
 </style>

@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    currentScreenHeight: 768, // 客户端高度，用于适应canvasNest
+    currentScreenHeight: document.documentElement.clientHeight || document.body.clientHeight, // 客户端高度，用于适应canvasNest
     bootState: true, // 控制启动页的显示
     showingMaskLayer: false
   },

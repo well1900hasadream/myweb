@@ -49,7 +49,6 @@ export default {
         let that = this
         setTimeout(function () {
           // 打印screenWidth变化的值
-          console.log(that.screenHeight)
           that.timer = false
         }, 300)
       }

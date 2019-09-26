@@ -1,14 +1,14 @@
 <template>
   <div class="main-viewport">
     <el-container class="el-container">
-      <el-header>
+      <el-header height="60px">
         <MyHeader></MyHeader>
       </el-header>
       <el-container>
-        <el-aside width="100px">
+        <el-aside width="50px">
           <SideBar></SideBar>
         </el-aside>
-        <el-main>
+        <el-main :style="{ height: getScreenHeight - 60 + 'px'}">
           <transition name="fade" mode="out-in">
             <router-view />
           </transition>
@@ -23,9 +23,20 @@ import MyHeader from '@/components/Header/Header'
 import SideBar from '@/components/SideBar/SideBar'
 
 export default {
+  data () {
+    return {
+      // mainStyle: {
+      //   height: 
+      // }
+    }
+  },
   computed: {
     showBoot () {
       return this.$store.state.bootState
+    },
+    getScreenHeight () {
+      console.log(this.$store.state.currentScreenHeight);
+      return this.$store.state.currentScreenHeight
     }
   },
   components: {

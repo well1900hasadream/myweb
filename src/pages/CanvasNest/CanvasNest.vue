@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas-nest" :style="{ height: screenHeight + 'px'}" @click.native="console.log(this)">
+  <div id="canvas-nest" :style="{ height: screenHeight + 'px'}">
   </div>
 </template>
 
@@ -22,7 +22,8 @@ export default {
         count: 120,
         opcity: 0.8
       }
-      const cavasNest = new CanvasNest(document.getElementById('canvas-nest'), config)
+      /* eslint-disable no-new */
+      new CanvasNest(document.getElementById('canvas-nest'), config)
     },
     getHeightByResize () {
       const that = this
@@ -60,7 +61,10 @@ export default {
 <style lang="scss" scoped>
 #canvas-nest{
   width: 100%;
-  // z-index: -999999;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -999999;
   // pointer-events: none !important;
   // background-color: gray;
   // min-height: 200px;

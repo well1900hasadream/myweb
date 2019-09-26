@@ -1,13 +1,15 @@
 <template>
   <div class="side-bar">
     <el-drawer
-      title="我是标题"
+      title="TITLE"
       class="left-side-drawer"
       :visible.sync="showDrawer"
       :direction="drawerDirection"
       :modal="false"
     >
-      <span>我来啦!</span>
+      <div class="side-content">
+        我来啦!
+      </div>
     </el-drawer>
     <div :class="shaking ? 'side-bar-trigger side-bar-trigger-shaking' : 'side-bar-trigger side-bar-trigger-shakingback'"
       @click="handleClick"
@@ -61,8 +63,8 @@ export default {
   top: 50%;
   transform: translate(0,-50%);
   width: 100%;
-  height: 90%;
-  // border-radius: 10%;
+  height: 95%;
+  border-radius: 10%;
 }
 .side-bar-trigger{
   position: fixed;
@@ -85,6 +87,9 @@ export default {
   animation: shakingBack1900 .5s;
   height: 30%;
   left: -50px;
+}
+.side-content{
+  padding: 20px 20px 0;
 }
 
 @keyframes shaking1900 {

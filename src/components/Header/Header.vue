@@ -1,40 +1,64 @@
 <template>
-  <div>
-    <el-menu :default-active="activeIndex" class="el-menu" mode="horizontal" @select="handleSelect">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3">消息中心</el-menu-item>
-      <el-menu-item index="4">订单管理</el-menu-item>
+  <div class="header">
+    <el-menu :default-active="activeIndex"
+    class="el-menu"
+    mode="horizontal"
+    @select="handleSelect">
+      <el-menu-item index="1" @click="routerGo('/home')">首页</el-menu-item>
+      <el-menu-item index="2" @click="routerGo('/notes')">文章</el-menu-item>
+      <el-menu-item index="3">转载</el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        activeIndex: '1'
-      }
+export default {
+  data () {
+    return {
+      activeIndex: '1'
+    }
+  },
+  methods: {
+    handleSelect (key, keyPath) { // 点击导航的事件句柄
+      // console.log(key, keyPath)
     },
-    methods:{
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath)
+    routerGo (url) {
+      if(this.$router.history.current.fullPath === url){
+        return;
+      } else {
+        this.$router.push(url)
       }
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-
+.header{
+  width: 100%;
+  height: 100%;
+}
+.el-menu{
+  float: right;
+  background-color: transparent;
+  border-bottom: none !important;
+  user-select: none;
+  >.el-menu-item{
+    padding: 0 30px;
+    font-size: 18px;
+  }
+  >.is-active{
+    background-color: transparent;
+    font-weight: bold;
+    border-bottom-color: red !important;
+  }
+  >.is-active::hover{
+    background-color: grey;
+    color: white;
+  }
+  .router-link{
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>
